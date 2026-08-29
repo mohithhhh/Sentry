@@ -1,1 +1,32 @@
-[]
+[
+  {
+    "deal_id": "deal-001",
+    "prospect_name": "Marcus Webb",
+    "company": "Fenwick Logistics",
+    "thread_text": "[2026-08-24] Rep: Hi Marcus, thanks for hopping on a call last week. As promised, I've attached our Team plan pricing and a rough rollout timeline — let me know if anything looks off.\n[2026-08-25] Prospect: This looks solid. Quick question — does the Team plan include SSO, or is that Enterprise-only?\n[2026-08-25] Rep: Good catch — SSO is normally Enterprise-only, but we can bundle it into Team for accounts over 20 seats at no extra cost. Want me to redline the quote with that included?\n[2026-08-26] Prospect: Yes please, that works. If the numbers hold I think we're ready to move on this.\n[2026-08-28] Prospect: Following up — did the redlined quote go out? We'd like to get this in front of our VP before her Friday budget review, so sooner is better on our end."
+  },
+  {
+    "deal_id": "deal-002",
+    "prospect_name": "Dana Ortiz",
+    "company": "Ortiz & Vale Consulting",
+    "thread_text": "[2026-08-27] Rep: Hi Dana, checking in after last week's demo — any updates on your end?\n[2026-08-28] Prospect: Great timing. We just got budget sign-off from finance this morning. Can you send over the contract so we can get it routed for signature?\n[2026-08-29] Prospect: Also wanted to flag — we'd like to kick off onboarding as early as next week if that's realistic on your side."
+  },
+  {
+    "deal_id": "deal-003",
+    "prospect_name": "Priya Anand",
+    "company": "Loop Analytics",
+    "thread_text": "[2026-08-05] Prospect: Hi Alex, thanks for reaching out. We're evaluating a few reporting tools right now — happy to grab 30 minutes next week for a demo.\n[2026-08-09] Prospect: Really appreciate you walking us through the platform today. Our current reporting process is a mess and the dashboard view you showed basically solves it live. I want to loop in our data lead before we commit to anything, but this is looking really promising.\n[2026-08-09] Rep: Awesome to hear, Priya! I'll send over the ROI case study now so you have something concrete to share with your data lead. Happy to jump on a call with them whenever works.\n[2026-08-19] Rep: Hi Priya — floating this back to the top of your inbox. Did you get a chance to loop in your data lead? Happy to hop on a call together whenever's convenient."
+  },
+  {
+    "deal_id": "deal-004",
+    "prospect_name": "Jordan Blake",
+    "company": "Crestline Manufacturing",
+    "thread_text": "[2026-08-12] Rep: Hi Jordan, just checking in on timing for a follow-up demo with your team.\n[2026-08-13] Prospect: Hey Alex — appreciate you reaching out. We ended up going a different direction and signed with another vendor last month. Please stop following up on this one — I'll keep you in mind if things change down the line."
+  },
+  {
+    "deal_id": "deal-005",
+    "prospect_name": "Sam Okafor",
+    "company": "Nimbus Health",
+    "thread_text": "[2026-08-19] Prospect: This all sounds great so far — genuinely excited about what this could do for our team.\n[2026-08-21] Rep: Glad to hear it! Here's the full pricing breakdown for the Growth plan we discussed.\n[2026-08-22] Prospect: Ok, thanks — let me take a look and get back to you."
+  }
+]

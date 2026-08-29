@@ -17,6 +17,8 @@ from routes import deals
 # TODO: pull allowed origins from environment/config instead of hardcoding
 ALLOWED_ORIGINS = [
     "http://localhost:3000",
+    # TODO (Phase 6): add the deployed Vercel URL once known, e.g.
+    # "https://sentry-<project>.vercel.app",
 ]
 
 app = FastAPI(title="Sentry", version="0.1.0")
