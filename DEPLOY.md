@@ -40,7 +40,20 @@ actual presentation. See the pre-demo checklist at the bottom.
 3. Add an environment variable (Vercel dashboard → Settings → Environment Variables):
    | Key | Value |
    |---|---|
-   | `NEXT_PUBLIC_API_BASE` | your Render URL from step 1.5, e.g. `https://sentry-backend-xxxx.onrender.com` |
+   | `NEXT_API_BASE` | your Render URL from step 1.5, e.g. `https://sentry-backend-xxxx.onrender.com` |
+
+   **This will not actually reach the browser.** Next.js only inlines
+   environment variables prefixed `NEXT_PUBLIC_` into client-side code;
+   `frontend/app/lib/api.ts` runs in client components (`DealList`,
+   `TraceFeed`, `page.tsx` are all `"use client"`) and reads this value at
+   request time in the browser. With this name, that lookup is always
+   `undefined`, and the app silently falls back to its hardcoded
+   `http://localhost:8000` default — meaning the deployed Vercel site will
+   try to call `localhost` from the visitor's own browser, not your Render
+   backend. If you actually want the deployed frontend to reach the
+   deployed backend, rename this back to `NEXT_PUBLIC_API_BASE` (in the
+   Vercel env var above, `.env.local.example`, and the `API_BASE` line in
+   `frontend/app/lib/api.ts`).
 4. Deploy. Note the resulting Vercel URL (`https://sentry-<project>.vercel.app`).
 
 ## 3. Close the loop: point the backend's CORS at the real Vercel URL
