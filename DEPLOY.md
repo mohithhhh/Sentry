@@ -42,19 +42,19 @@ actual presentation. See the pre-demo checklist at the bottom.
    |---|---|
    | `NEXT_API_BASE` | your Render URL from step 1.5, e.g. `https://sentry-backend-xxxx.onrender.com` |
 
-   **This will not actually reach the browser.** Next.js only inlines
-   environment variables prefixed `NEXT_PUBLIC_` into client-side code;
-   `frontend/app/lib/api.ts` runs in client components (`DealList`,
-   `TraceFeed`, `page.tsx` are all `"use client"`) and reads this value at
-   request time in the browser. With this name, that lookup is always
-   `undefined`, and the app silently falls back to its hardcoded
-   `http://localhost:8000` default — meaning the deployed Vercel site will
-   try to call `localhost` from the visitor's own browser, not your Render
-   backend. If you actually want the deployed frontend to reach the
-   deployed backend, rename this back to `NEXT_PUBLIC_API_BASE` (in the
-   Vercel env var above, `.env.local.example`, and the `API_BASE` line in
-   `frontend/app/lib/api.ts`).
+   This name doesn't carry the `NEXT_PUBLIC_` prefix Next.js normally
+   requires to expose a variable to the browser — it works anyway because
+   `frontend/next.config.mjs` explicitly re-exposes it via the `env` config
+   key, which inlines a named variable into both server and client bundles
+   regardless of prefix. Confirmed by building with a test value and
+   grepping it out of the compiled client JS. If you ever rename this
+   again, it needs to change in three places together: this Vercel value,
+   `.env.local.example`, and the `env` key in `next.config.mjs`.
 4. Deploy. Note the resulting Vercel URL (`https://sentry-<project>.vercel.app`).
+5. **After adding/changing this env var on an already-deployed project,
+   redeploy** — Vercel only inlines env vars at build time, so an existing
+   deployment won't pick up a new value until you trigger a new build
+   (Deployments tab → ⋯ → Redeploy).
 
 ## 3. Close the loop: point the backend's CORS at the real Vercel URL
 
