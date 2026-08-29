@@ -9,7 +9,8 @@ import TraceFeed from "./components/TraceFeed";
  */
 export default function Home() {
   return (
-    <main>
+    <main className="p-8">
+      <h1 className="text-2xl font-semibold">Sentry</h1>
       {/* TODO: replace placeholders with real data-driven components */}
       <DealList />
       <TraceFeed />

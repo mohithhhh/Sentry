@@ -18,17 +18,22 @@ async def ingest_deals() -> dict:
     TODO: implement
     """
     # TODO: implement
-    pass
+    return {}
 
 
 @router.get("/{deal_id}/stream")
 async def stream_deal(deal_id: str) -> EventSourceResponse:
     """Stream live trace/progress events for a deal via SSE.
 
-    TODO: implement — wire this up to the LangGraph run for `deal_id`.
+    TODO: implement — wire this up to the LangGraph run for `deal_id`
+    via astream_events(version="v2").
     """
     # TODO: implement
-    pass
+    async def event_stream():
+        return
+        yield  # pragma: no cover - makes this an async generator
+
+    return EventSourceResponse(event_stream())
 
 
 @router.post("/{deal_id}/retriage")
@@ -38,7 +43,7 @@ async def retriage_deal(deal_id: str) -> dict:
     TODO: implement
     """
     # TODO: implement
-    pass
+    return {}
 
 
 @router.get("")
@@ -48,4 +53,4 @@ async def list_deals() -> list[dict]:
     TODO: implement
     """
     # TODO: implement
-    pass
+    return []
