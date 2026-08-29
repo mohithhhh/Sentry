@@ -16,6 +16,11 @@ eggs/
 .eggs/
 lib/
 lib64/
+# The bare "lib/" rule above (from Python's packaging conventions) also
+# matches frontend/app/lib/, a real source directory in the Next.js app —
+# un-ignore it explicitly.
+!frontend/app/lib/
+!frontend/app/lib/**
 parts/
 sdist/
 var/
