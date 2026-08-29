@@ -1,6 +1,9 @@
 # Sentry
 
-Sales CRM agent — TODO: one-line description.
+An autonomous sales agent that reads a rep's deal threads, reconstructs
+where each deal stands, and makes an explainable judgment call — confident,
+ambiguous, or deprioritize — with a visible, inspectable reasoning trace for
+every decision.
 
 ## Setup
 
@@ -8,13 +11,13 @@ Sales CRM agent — TODO: one-line description.
 
 ```bash
 cd backend
-# TODO: create and activate a virtualenv
-pip install -r requirements.txt
-cp .env.example .env  # fill in OPENAI_API_KEY or ANTHROPIC_API_KEY
-uvicorn main:app --reload
+python3 -m venv .venv
+.venv/bin/pip install -r requirements.txt
+cp .env.example .env  # fill in GOOGLE_API_KEY
+.venv/bin/uvicorn main:app --reload
 ```
 
-Deploys to Render. TODO: add Render deployment instructions/config.
+Deploys to Render — see [DEPLOY.md](DEPLOY.md).
 
 ### Frontend (Next.js)
 
@@ -25,4 +28,12 @@ cp .env.local.example .env.local
 npm run dev
 ```
 
-Deploys to Vercel. TODO: add Vercel deployment instructions/config.
+Deploys to Vercel — see [DEPLOY.md](DEPLOY.md).
+
+## Try it
+
+1. Start both servers above.
+2. Open `localhost:3000`, click **Load deals** — watch Sentry triage all 5
+   synthetic deals live, one at a time.
+3. Once the Loop Analytics deal shows **ambiguous**, click **Simulate a
+   reply** — watch it reclassify to confident and draft a follow-up, live.
