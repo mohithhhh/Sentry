@@ -2,9 +2,8 @@
  * API client for the Sentry backend.
  */
 
-// NOTE: NEXT_API_BASE (no NEXT_PUBLIC_ prefix) is NOT exposed to the browser
-// by Next.js — this will always evaluate to undefined in client components
-// and fall through to the localhost default below, even when deployed.
+// Exposed to the browser via the `env` key in next.config.mjs, since this
+// name doesn't carry the NEXT_PUBLIC_ prefix Next.js would otherwise require.
 const API_BASE = process.env.NEXT_API_BASE ?? "http://localhost:8000";
 
 export interface DealFeatures {
