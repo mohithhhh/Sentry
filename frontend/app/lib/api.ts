@@ -4,7 +4,10 @@
 
 // Exposed to the browser via the `env` key in next.config.mjs, since this
 // name doesn't carry the NEXT_PUBLIC_ prefix Next.js would otherwise require.
-const API_BASE = process.env.NEXT_API_BASE ?? "http://localhost:8000";
+// Trailing slash(es) stripped so a value like "https://host.com/" doesn't
+// produce a double slash when concatenated with a path below (FastAPI
+// treats "//deals/ingest" as a distinct, unregistered route — 404s).
+const API_BASE = (process.env.NEXT_API_BASE ?? "http://localhost:8000").replace(/\/+$/, "");
 
 export interface DealFeatures {
   days_since_last_message: number;
