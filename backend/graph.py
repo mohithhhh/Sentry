@@ -200,7 +200,7 @@ def extract_features(thread_text: str) -> DealFeatures:
 
 @lru_cache(maxsize=1)
 def _get_llm() -> ChatGoogleGenerativeAI:
-    return ChatGoogleGenerativeAI(model="gemini-2.5-flash", temperature=0)
+    return ChatGoogleGenerativeAI(model="gemini-3.5-flash-lite", temperature=0)
 
 
 class _ClassificationResult(BaseModel):
