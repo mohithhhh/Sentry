@@ -110,7 +110,7 @@ export default function TraceFeed({ dealId, onDone, onError }: TraceFeedProps) {
             Nothing running yet. Load deals to watch Sentry triage them one by one.
           </p>
         ) : (
-          <div className="p-4 font-mono text-xs space-y-1.5 max-h-72 overflow-y-auto">
+          <div className="p-4 font-mono text-xs space-y-1.5 max-h-[28rem] overflow-y-auto">
             {error && <p className="text-signal-rust">{error}</p>}
             {lines.map((line, i) => (
               <div
