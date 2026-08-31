@@ -9,15 +9,23 @@ Responsible for:
 No business logic lives here — this is composition only.
 """
 
+import os
+
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
 from routes import deals
 
-# TODO: pull allowed origins from environment/config instead of hardcoding
-ALLOWED_ORIGINS = [
-    "http://localhost:3000",
+# The Vercel URL doesn't exist until the frontend is deployed, so it can't be
+# hardcoded here — set EXTRA_ALLOWED_ORIGINS on Render once it's known (see
+# DEPLOY.md) rather than editing this file and redeploying.
+_DEFAULT_ORIGINS = ["http://localhost:3000"]
+_extra_origins = [
+    origin.strip()
+    for origin in os.environ.get("EXTRA_ALLOWED_ORIGINS", "").split(",")
+    if origin.strip()
 ]
+ALLOWED_ORIGINS = _DEFAULT_ORIGINS + _extra_origins
 
 app = FastAPI(title="Sentry", version="0.1.0")
 
