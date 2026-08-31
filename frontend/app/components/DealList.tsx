@@ -66,7 +66,7 @@ export default function DealList({
                         {deal.prospect_name ?? deal.deal_id}
                       </div>
                     </td>
-                    <td className="py-3 pr-2 align-top text-paper-dim max-w-sm">
+                    <td className="py-3 pr-6 align-top text-paper-dim">
                       {deal.reasoning ?? (isActive ? "triaging…" : "not yet triaged")}
                     </td>
                     <td className="py-3 pr-2 align-top font-mono text-xs text-paper-dim">

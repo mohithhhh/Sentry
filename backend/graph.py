@@ -268,7 +268,24 @@ def _draft_followup(state: DealState, calendar_slot: str) -> str:
         f"Proposed time slot: {calendar_slot}\n"
     )
     response = _get_llm().invoke(prompt)
-    return response.content
+    return _content_to_text(response.content)
+
+
+def _content_to_text(content: str | list) -> str:
+    """Normalize a LangChain message's .content into a plain string.
+
+    Some providers/models (observed with gemini-3.5-flash-lite) return a
+    list of content-block dicts (e.g. [{"type": "text", "text": "..."}])
+    instead of a bare string. DealState.draft and the frontend both expect
+    plain text, so every caller routes through here rather than trusting
+    .content's shape.
+    """
+    if isinstance(content, str):
+        return content
+    return "".join(
+        block.get("text", "") if isinstance(block, dict) else str(block)
+        for block in content
+    )
 
 
 def strategist_node(state: DealState) -> DealState:
