@@ -37,3 +37,6 @@ Deploys to Vercel — see [DEPLOY.md](DEPLOY.md).
    synthetic deals live, one at a time.
 3. Once the Loop Analytics deal shows **ambiguous**, click **Simulate a
    reply** — watch it reclassify to confident and draft a follow-up, live.
+
+
+   
